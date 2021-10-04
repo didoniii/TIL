@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="http://www.choongang.co.kr">
+
+<table border="1">
+<caption><h2>회원가입</h2></caption>
+ <tr><th>아이디</th>
+ <td><input type="text" name="id" size="6" maxlength="6"></td></tr>
+  <tr><th>암호</th>
+  <td><input type="password" name="password"></td></tr>
+   <tr><th>이름</th>
+   <td><input type="text" name="name" size="5" maxlength="5" placeholder="아무개"></td></tr>
+    <tr><th>전화</th><td><input type="tel" name="tel" placeholder="010-1111-1111"
+		pattern="010-\d{3,4}-\d{4}" title="형식 010-1111-1111"></td></tr>
+     <tr><th>취미</th>
+     <td><select name="취미">
+          <option>졸기<option>울기<option>짜기<option>놀기
+     </select></td></tr>
+      <tr><th>영화</th>
+      <td>
+      <label for="m1">아이언맨</label><input type="checkbox" name="movie id="m1"><br>
+      <label for="m2">배트맨</label><input type="checkbox" name="movie" id="m2"><br>
+      <label for="m3">앤트맨</label><input type="checkbox" name="movie" id="m3"><br>
+      <label for="m4">호빵맨</label><input type="checkbox" name="movie" id="m4"><br>
+      <label for="m5">스파이더맨</label><input type="checkbox" name="movie" id="m5"><br>
+      </td></tr>
+      <tr><th colspan="2"><input type="submit" value="확인"></th></tr>
+</table>
+
+</form>
+</body>
+</html>
