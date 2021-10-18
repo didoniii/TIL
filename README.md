@@ -32,4 +32,8 @@ float, double:실수형) -실제 값을 저장
 
 참조형(Reference type)-기본형 제외 나머지 모두 (String, System 등) - 메모리주소를 저장
 
+-10/19
++/n ,%n 둘다 줄바꿈으로 쓰는데(개행문자) /n은 os에 따라 적용이 안될수도 있다. %n은 os에 관계없이 개행문자 출력이 가능하다.
 
++ Scanner란 데이터를 입력받는 기능을 제공하는 클래스.
+Scanner sc = new Scanner (System in) ->System in 은 화면으로 부터 입력을 받는다는 의미이다.
