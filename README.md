@@ -16,4 +16,20 @@ ex)<img alt="" src="../images/image001.jpg">
 오늘 설문조사 or로그인 화면 같은 형식을 구현하면서 빈칸이 있는 것을 alter창이 뜨게 하는 것을했는데 return;을 써줘서 한가지가 비어있으면 뒤의 항목들 전부 물어보지 않게 순서상 맨처음 경고창만 뜨게 하는 것을 해서 return을 사용했다가 선생님이 return false를 쓰셔서 차이점을 찾아봤는데 그냥 return은 null값을 리턴해주는 것이고 retrun false는 false 값을 리턴해주는 것인데 
 코드의 가독성에서 false로 명확하게 표시를 해주는 것이 더 좋은 것 같다는 의견들이 많았다.
 
+-10/18
++이클립스 단축키 새로알게된것 : ctrl+D (행 삭제) ctrl+alt+a (컬럼선택) ctrl+ +/- (화면 확대/축소) ctrl+alt+down키 (행복사) ctrl+i(정렬) tab+shift(내어쓰기)
+
++변수(variable): 하나의 값을 저장하기 위한 공간//상수(constant) : 한 번만 값을 저장 가능한 변수 (앞에 final) //리터럴(literal) : 그 자체로 그 값을 의미하는 것
+
++e: 10^n의미한다. (ex. 1e3 == 10^3 == 1000.0d (e는 실수형이므로+ doubleg형이 default값)
+
++println은 10진수의 수만 출력가능하다.
+
++String타입에는 ""빈문자열 저장가능하지만  char타입에는 ''를 저장하려하면 에러가 난다.
+
++기본형(Primitive type) -8개 (boolean:논리형//char:문자형//byte, short, int, long:정수형//
+float, double:실수형) -실제 값을 저장
+
+참조형(Reference type)-기본형 제외 나머지 모두 (String, System 등) - 메모리주소를 저장
+
 
