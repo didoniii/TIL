@@ -45,3 +45,18 @@ Scanner sc = new Scanner (System in) ->System in 은 화면으로 부터 입력�
  "3" + 1 = "3" + "1" = 31
  
 + 0.0 <= Math.random() < 1.0 : 0.0과 1.0사이의 임의의 double값을 반환 (0.0포함)
+
+10/20
++ ctrl+shift+o ->import자동완성
+
++배열 선언
+타입 [] (배열기호)  변수이름; ex) int [] score;
+
++배열 생성
+변수이름 = new 타입[길이]; ex) score = new int[5]; 
+
++배열 선언과 생성 동시에
+ex) int[] score = new int[5];
+
++객체배열
+ex) Tv[] tvArr = new Tv[3]; -> Tv타입의 객체 3개를 배열로 생성한다
