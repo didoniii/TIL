@@ -60,3 +60,8 @@ ex) int[] score = new int[5];
 
 +객체배열
 ex) Tv[] tvArr = new Tv[3]; -> Tv타입의 객체 3개를 배열로 생성한다
+
+10/21
++ return문 : 실행중인 메서드를 종료하고 호출한곳으로 돌아간다.
+ (주의)- return문은 반환타입이 void일 때만 생략가능하다
+       - 조건식이 참일때 return값과, 거짓일 때 return값이 둘다 정의 되어있어야한다.
