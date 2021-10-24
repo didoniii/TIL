@@ -1,0 +1,55 @@
+ JNDI(Java Naming and Directory Interface)
+	- 디렉터리 서비스에서 제공하는 데이터 및 객체를 발견하고 참고(look up)하기 
+	 위한 자바API
+	- 즉, 외부에 있는 객체를 가져오기 위한 기술
+	- Tomcat과 같은 WAS를 보면 특정 폴더에 필요한 데이터소스(라이브러리)가 있는데
+	  그것을 사용하기 위해 JNDI를 이용해서 가져오는 것
+
+		1. 사용자가 요청을 한다.
+		2. 요청은 Control을 거쳐 Model로 전달된다.
+		3. Model로 넘어간 요청은 JNDI에 등록된 데이터베이스 객체(Type: DataSource)
+		   를 검색한다.
+		4. JNDI를 통해 찾은 객체로부터 커넥션을 획득한다.
+		5. 데이터베이스 작업이 끝난 후 획득한 커넥션을 반납한다.
+
+
+	-Context ctx = new InitialContext();
+		: InitialContext()는 웹 애플리케이션이 처음 배치될 때 설정되고, 모든 설정된
+		 엔트리와 자원은 JNDI namespace의 java:comp/env 부분에 놓이게 됨
+
+
+updateForm.jsp
+
+	ex)-pageContext.setAttribute ("member", member);
+
+	pageContext 객체 ( javax.servlet.jsp.PageContext)
+		 : pageContext 객체는 JSP 기본객체로 JSP페이지에서 따로 선언하지 않아도
+		  참조하여 사용 가능합니다.
+		   pageContext는 JSP페이지에 대해 1:1로 연결된 객체로 JSP 페이지당 하나의
+		   pageConext객체가 생성됩니다.
+		   따라서 같은 JSP페이지 내에서는 서로 값을 공유할 수 있으며, 주요 기능은 
+		   다른 기본객체들을 구할때 사용하거나 페이지 흐름을 제어할때 사용됩니다.
+
+		pageContext.setAttribute("이름", "값") ->데이터 입력
+		pageContext.getAttribute("이름", "값") ->데이터 출력
+
+
+update.jsp  
+ex)
+<jsp:useBean id="member" class="ch10.Member"></jsp:useBean>
+<jsp:setProperty property="*" name="member"/>
+
+->member라는 이름을 가진 자바빈즈 안에 있는 *(모든) 멤버변수에 파라미터로 받은
+   모든 값들을 넘긴다. 
+
+
+
+
+
+
+
+
+
+
+
+
