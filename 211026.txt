@@ -1,0 +1,42 @@
+1. paging
+   mysql 
+      limit select * from table명 order by 컬러명 [desc] limit startRow,갯수;
+   oracle topN
+      select * from (select rowNum rn, a.* from (select * from table명 order by 컬럼명 [desc] )
+             where rn startRow and endRow; 
+  1) startRow = (currentPage - 1) * page당 갯수 + 1;
+     endRow = startRow + page당 갯수 - 1;
+  2) 총 갯수 sect count(*) from table명;
+      총페이지 수 = (int)Math.ceil((double)총갯수/페이지당 갯수)
+      startPage = currnetPage - (currentPage  - 1) % 블럭당 갯수 + 1;
+      endPage = startPage  + 블럭당 갯수 - 1;
+      if (endPgae > totalPage) endPage = totalPage;
+
+2. 답변 게시판
+    ref : 답변 관계있는 것끼리 뭉치기 위한 것
+       . 처음 작성할 때는 게시판 번호(num)과 같다.
+       . 답변게시판일 경우는 읽은 글의 ref와 같다
+    re_step : 답변글의 순서
+       . 답변을 최신 순서 : 
+          1) ref가 같고 re_step이 읽은 글보다 큰 값이 있으면 전부 re_step + 1;
+          2) 새글의 re_step = re_step + 1;      
+    re_level : 들여쓰기    
+       . 답변 순서 대로
+          1) 새글의 re_level = re_level + 1;
+ 
+3. 쇼핑몰
+   - 무통장 입금, 카드/스마트 폰 결재는 결재 대행사 시스템에서 가져다 사용
+   - 시스템 개발 : 
+      1) 관리자 
+          - 회원/거래/게시글 : 수정, 삭제, 제한에 대한 전체 권한을 부여
+          - 상품을 등록/수정/삭제
+      2) 사용자
+          - 회원/거래/게시글 : 수정, 삭제, 제한에 대한 본인 것에 대해서만 권한을 부여
+          - 구매/장바구니 담기/결제
+          - 장바구니 데이터를 지우지 않고 거래를 하지 않은 장바구니 물건은 할인으로 구매 유도
+          - 로그인 체크 : 볼수 있는 화면이나 조건을 조정
+
+4. html5
+   - header, footer, nav, article : css로 조정, 시맨틱
+   - video, audio : 컴퓨터에 설치되지 않아도 비디오/오디오를 사용
+ 
