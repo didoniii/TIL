@@ -1,0 +1,43 @@
+1. index.jsp
+	location.href="list.do";  
+
+2. command.properties
+	list.do=ch14.service.ListAction
+
+3. ListAction.java
+	3-1 CommandProcess를 상속 --> java interface임.
+
+	- 인터페이스는 동일한 목적 하에 동일한 기능을 보장하기 위해 사용한다.
+	- interface 키워드를 통해 선언 할 수 있으며 inplements 키워드를 통해 일반 클래스에서
+	  인터페이스를 구현할 수 있다.
+
+	String requestPro(HttpServletRequest request, HttpServletResponse response);
+ 	타입   메소드명  (매개변수, ... ) 
+
+	
+	3-2 BoardDao bd = BoardDao.getInstance();   --->DB연결
+
+	3-3 request.setAttribute("xxxx", xxxx);
+
+	    ->	* action에서 객체를 request에 담아 보낼경우.
+
+   		  request.setAttribute("객체명", 객체);
+				   (String, object);
+	https://wrkbr.tistory.com/51
+
+4. list.jsp
+
+ JSTL : 모델 2에서는 JAVA코드를 JSTL로 바꿈 !
+
+	ex)  HTML 코드 내에 java 코드인 스크립틀릿 <%= student %>를 ${student}로, 
+	 <%=if %>문을 <c:if>, <%=for%>문을 <c:forEach>로 대체하여 사용한다.
+
+	- <c:forEach>는 List, 배열 요소를 순서대로 반복해서 처리할 수 있는 태그 입니다.
+
+5. writeForm.do -> WriteForm.java -> writeForm.jsp ->write.do ->Write.java -> write.jsp
+
+
+	
+	
+
+
