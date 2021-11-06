@@ -1,0 +1,28 @@
+로컬스토리지
+	- HTML5에서 추가된 저장소로 브라우저에 위치한다.
+
+	- 간단한 키와 값을 저장할 수 있고, 로컬 스토리지에 저장된 데이터는 사용자가 지우지 않는
+	  이상 계속 브라우저에 남아있다.
+
+	- 로컬 스토리지는 window 객체 안에 들어있고, 'Storage' 객체를 상속받기 때문에 메소드를
+	  사용할 수 있다. 
+
+데이터 저장하기
+	Syntax:
+	localStorage.setItem('key', 'value');
+
+불러오기 : localStorage.getItem ('key') ;
+
+브라우저에서 저장된 내역 보기
+	크롬 개발자도구 열기 -> Application탭 -> 왼쪽 메뉴에서 Storage > Local Storage 클릭
+
+cf) sessionStorage
+
+	localStorage와 sessionStorage 두가지 방법 모두 애플리케이션 전역에 접근 가능하다.
+	두가지 방법의 차이점은 저장되는 데이터의 범위가 다르다는 점이다.
+		-> localStorage는 동일한 PC안에서 동일한 브라우저를 사용했을 때 이용
+		    즉, 데이터를 직접 삭제하지 않는 한 브라우저를 닫아도 저장된 데이터를
+		    불러올 수 있다.
+
+ 		->sessionStorage는 반대로 브라우저 창이 닫히면 세션이 종료되면서
+		   storage에 저장된 데이터도 소멸된다.
