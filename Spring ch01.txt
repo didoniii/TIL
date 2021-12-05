@@ -1,0 +1,141 @@
+samp01 : En /Kr각각의 클래스를 만들고 실행파일에서 생성자를 이용해 객체를 생성한 후 메서드를
+	호출하여 실행시킨다.
+
+samp02 : samp01 + 인터페이스를 생성하여 각 클래스는 그 인터페이스를 상속받아서 메서드를
+	정의하고 실행파일에서 인터페이스 이용해서 원하는 클래스 형태로 객체를 생성하여	
+	메서드를 실행시킨다.
+
+samp03 : beans01.xml파일을 만들어서 어떤 클래스를 이용할것인지 명시해놓고 
+
+AbstractApplicationContext ac = new FileSystemXmlApplicationContext("beans01.xml");
+ 	: ac로 생성해낸다.
+
+MessageBean mb = ac.getBean("mb", MessageBean.class);
+	: Message Bean형식이면서 아이디가 mb인 bean에 등록된 클래스형식의 객체를 생성.
+
+
+스프링 XML 설정
+<beans> Element
+스프링 설정 파일 이름은 무엇을 사용하든 상관없지만 <beans>를 루트 엘리먼트로 사용해야 한다. 
+그리고 <beans> 엘리먼트 시작 태그에 네임스페이스를 비롯한 XML 관련 정보가 설정이 된다.
+스프링 설정 파일에 클래스를 등록하기 위해 사용한다.
+즉 이 Bean에 등록되면 스프링 컨테이너가 알아서 이 객체를 관리해준다는 것이다.
+
+public 추상 클래스 AbstractApplicationContext는 DefaultResourceLoader를 
+확장하여 ConfigurableApplicationContext를 구현합니다.
+
+	 DefaultResourceLoader : ResourceLoader인터페이스 의 기본 구현입니다 .
+
+		ResourceLoader :리소스 로드를 위한 전략 인터페이스
+			          (예: 클래스 경로 또는 파일 시스템 리소스)
+
+GenericXmlApplicationnContext	
+	: 파일 시스템이나 클래스 경로에 있는 XML 파일을 로딩하여 구동하는 컨테이너다.
+
+
+samp04 : samp03와 같은 형식
+
+
+samp05 : 1. MessageBean 인터페이스 생성
+	2. MessageBeanImpl.java -> 인터페이스에 대한 재정의 
+				지역변수 포함된 메서드 정의됨.
+	3. beans05.xml 파일을 samp05패키지 안에 생성함
+		<constructor-arg><value>로제</value></constructor-arg>
+		<constructor-arg value="안녕!"></constructor-arg>
+		지역변수에 들어갈 value값을 xml파일에 정의해놈.
+		만약에 value값이 변하게 되면 xml파일(문서)만 고치면 됨. 
+		코드를 건들이지 않아도된다. (관리가 쉬움)
+	4. Ex01:실행파일
+	AbstractApplicationContext ac 
+			= new ClassPathXmlApplicationContext("/samp05/beans05.xml");
+
+	samp05패키지 안에 xml파일을 만들어서 경로가 위와같이 변했다.
+
+
+
+samp06 : samp05와 같은 형식
+
+
+samp07, samp08 :  samp05와 거의 같은데 beans__.xml파일을 src/main/resources 파일에 담았다.
+		그래서 파일경로를 쓸때 
+		AbstractApplicationContext ac = 
+			new GenericXmlApplicationContext("classpath:beans08.xml");
+		로 변했다
+
+
+
+samp09 : samp05(콘솔로 출력) +file로 출력
+	1. samp05+ Output인터페이스 생성 
+	2. FileOutput에서 재정의
+	3. beans09.xml <beans></beans>두개 생성.
+	  	MessageBeanImpl에 대한것 FileOutput에 대한것.
+
+	<bean id="out" class="samp10.FileOutput">
+		<property name="fileName" value="k1.txt"></property>
+	</bean>
+	
+	file출력하는 것에대한 bean에 정의해논 value값은 파일이름.
+
+	<bean id="mb" class="samp09.MessageBeanImpl">
+		<property name="name" value="모모"></property>
+		<property name="greeting" value="하이"></property>
+		<property name="out1" ref="out"></property>
+	</bean>
+
+	Output이라는 객체형의 참조변수는 value로 안하고 ref로 한다.
+
+
+samp10 : samp09와 같은 형식
+
+samp11 / 12 : samp09 + toString
+
+	객체의 문자열 표현을 반환합니다. 일반적으로toString
+	메서드는이 개체를 “텍스트로 나타내는”문자열을 반환합니다.
+	그 결과는 사람이 읽기 쉬운 간결하지만 유익한 표현이어야합니다.
+	모든 하위 클래스가이 메서드를 재정의하는 것이 좋습니다.
+
+	toString클래스의 방법은 Object
+	객체가 인스턴스, 상기 서명 문자 ‘로되어있는 클래스의 이름 구성된 문자열 (@),
+	및 오브젝트의 해시 코드의 부호 없음 16 진 표현을 반환합니다. 
+	즉,이 메서드는 다음 값과 같은 문자열을 반환합니다.
+
+	getClass().getName() + '@' + Integer.toHexString(hashCode())
+
+
+samp13/14 : 어노테이션 사용
+		@Component - @Repository
+			       - @Service
+		@Autowired, @Inject : @Qualifier("객체명")
+
+	하나의 인터페이스에서 정의한 클래스가 여러개.
+		@Repository (__)로 구분한다.
+
+	@Service 파일에서
+	@Autowired
+	@Qualifier("pd1") // 사용할 객체 지정
+		     ↑ Repository로 구분해놓은것.				
+
+	beans13.xml
+	<!-- samp13패키지에서 compont를 찾아서 객체로 만들어 줘라 -->
+	<context:component-scan base-package="samp13"></context:component-scan>
+
+
+samp15/16 : Map을 사용하여  입력/수정/삭제/조회/목록
+	map.get(key)
+	map.put(key, value) 입력/수정
+	map.remove(key)
+	map.values()
+
+
+
+Set과 List의 차이 - set은 순서가 없지만 list는 중복을 허용하고 저장되는 순서가 유지된다.
+
+Prop은 Map을 상속받은것이다.
+
+
+
+
+
+
+
+
