@@ -1,0 +1,28 @@
+<회원 웹 기능 - 홈 화면 추가>
+
+@GetMapping("/") 
+
+이것은 lacalhost8080치고 딱들어왔을 때 호출된다는 의미이다.
+
+<H2 데이터베이스 설치>
+
+Java에서는 Long형이 DB에서는 bigint
+
+
+
+(insert문)
+1. INSERT INTO 테이블이름(필드이름1, 필드이름2, 필드이름3, ...)
+
+   VALUES (데이터값1, 데이터값2, 데이터값3, ...)
+
+2. INSERT INTO 테이블이름
+
+   VALUES (데이터값1, 데이터값2, 데이터값3, ...)
+
+ <순수 JDBC>
+
+개방-폐쇄 원칙(OCP, Open-Closed Principle)
+	: 확장에는 열려있고, 수정, 변경에는 닫혀있다.
+
+스프링의 DI (Dependencies Injection)을 사용하면 기존 코드를 전혀 손대지 않고, 설정만으로 구현
+클래스를 변경할 수 있다.
