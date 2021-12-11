@@ -1,0 +1,29 @@
+
+1. Sping+ Mybatis
+
+web.xml  ->  Controller  -> Service  -> DAO(DTO)  -> mybatis  - CRUD ->  DB
+
+RDB : 하나의 컬럼에 여러 데이터
+
+1대          다
+member - memberPhoto
+id:pk	번호:pk/ id:fk/ fileName
+
+1)한번에 데이터 여러개 입력
+	자바에서 for
+	mybatis	<foreach>
+
+2. Session
+	interceptors : loginChk
+
+-----------------------
+옮긴거
+-----------------------
+pom.xml
+web.xml -한글
+configuration.xml
+dp.properties
+member.xml
+bootstrap
+header.jsp
+rootcontext.xml -db연결
