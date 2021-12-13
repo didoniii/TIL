@@ -1,0 +1,61 @@
+SqlSessionTemplate ?
+
+	- SqlSessionTemplate은 마이바티스 스프링 연동모듈의 핵심
+	- SqlSessionTemplate은 SqlSession을 구현하고 코드에서 SqlSession를 대체하는 역할을 한다.
+	- SqlSessionTemplate 은 쓰레드에 안전하고 여러개의 DAO나 매퍼에서 공유할수 있다.
+	- SqlSessionTemplate 객체 사용
+	- SqlSessionTemplate를 bean 으로 등록
+	- 클래스에서 SqlSessionTemplate 필드(Field)방식으로 주입하여 사용
+	- SqlSession (SqlSessionTemplate)은 프록시 사용 및 스레드 안전 SqlSession 메서드를 호출
+
+
+하이버네이트?
+	하이버네이트는 자바 언어를 위한 ORM 프레임워크에요. JPA의 구현체로,
+	 JPA 인터페이스를 구현하며, 내부적으로 JDBC API를 사용.
+
+하이버네이트의 장점
+	생산성
+		: Hibernate는 SQL을 직접 사용하지 않고, 메서드 호출만으로 쿼리가 수행.
+		 즉, SQL 반복 작업을 하지 않음으로 생산성이 ↑
+
+	유지보수
+		: 테이블 컬럼이 변경되었을 때, 테이블과 관련된 DAO의 파라미터, 결과, SQL 등을
+		 대신 수행. 이로 인해 유지보수 측면에서 용이
+
+
+JPA?
+	자바 애플리케이션에서 관계형 데이터베이스를 사용하는 방식을 정의한 인터페이스.
+  	라이브러리가 아닌 인터페이스이므로 특정 기능을 하진 X.
+
+JDBC?
+
+	자바 프로그래밍 언어와 다양한 데이터베이스 SQL 또는 테이블 형태의 데이터 사이에
+	독립적인 연결을 지원하는 표준. 즉, DB 작업을 위한 표준.
+	DBMS 회사들이 JDBC 인터페이스를 구현하여 제공. 
+	이를 JDBC 드라이버라고 하는데, 결국 JDBC 드라이버란 DBMS 회사들이 자신들의 
+	데이터베이스 시스템에 접근 할 수 있도록 표준 JDBC 인터페이스에 명시된 메소드들을 
+	구현한 것.
+	따라서 JDBC API를 사용할 경우 하나의 자바 응용 프로그램만으로 JDBC 드라이버를 
+	제공하는 어떤 종류의 관계형 DBMS에도 접근이 가능하고, 사용자들은 특정 회사의 
+	데이터베이스의 정확한 사용 방법을 몰라도 JDBC API만 알면 데이터베이스 조작이 가능.
+
+HikariCP?
+	: HikariCP란 Springboot 2.0부터 default로 설정되어 있는 DB Connection Pool로써
+	 Zero-Overhead가 특징으로 높은 성능을 자랑하는 DB Connection Pool입니다. 
+	HikariCP는 미리 정해놓은 만큼의 Connection을 Connection Pool에 담아 놓습니다. 
+	그 후 요청이 들어오면 Thread가 Connection을 요청하고, Hikari는 Connection Pool내에 
+	있는 Connection을 연결해주는 역할을 합니다.
+
+Model이란?
+
+	: Model은 HashMap 형태를 갖고 있으며, key, value값을 가지고 있음. 
+	또한 addAttribute()와 같은 기능을 통해 모델에 원하는 속성과 그것에 대한 값을 주어 
+	전달할 뷰에 데이터를 전달할 수 있다.
+
+	: Spring에서 Controller의 메서드를 작성할 때는 특별하게 Model이라는 타입을 파라미터로 
+	지정할 수 있다. Model 객체는 JSP에 컨트롤러에서 생성된 데이터를 담아서 전달하는
+	역할을 하는 존재다. 
+	
+	: 이를 이용해서 JSP와 같은 뷰(View)로 전달해야 하는 데이터를 담아서 보낼 수 있다.
+	메서드의 파라미터에 Model 타입이 지정된 경우에는 스프링은 특별하게 Model 타입의 
+	객체를 만들어서 메서드에 주입하게 된다.
